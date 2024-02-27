@@ -10,4 +10,4 @@ jobs:
           environment:
             PGPORT: 5433
           command: |
-            counter=1; while [ $counter -le 3310 ]; do echo $counter; ((counter++)); clear; done
+            sleep 999
