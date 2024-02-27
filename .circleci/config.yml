@@ -1,0 +1,13 @@
+jobs:
+  build:
+    docker:
+      - image: cimg/python:3.8
+    parallelism: 2
+    steps:
+      - checkout
+      - run:
+          name: apoppo
+          environment:
+            PGPORT: 5433
+          command: |
+            nproc
