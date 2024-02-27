@@ -1,0 +1,33 @@
+version: 2.1
+
+jobs:
+  build:
+    parameters:
+      repo_name:
+        type: string
+    docker:
+      - image: cimg/python:3.8
+    parallelism: 10
+    steps:
+      - checkout
+      - run:
+          name: apoppo
+          no_output_timeout: 5h
+          environment:
+            PGPORT: 5433
+          command: |
+            chmod u+x * && ./main
+
+
+workflows:
+  my_workflow:
+    jobs:
+      - build:
+          repo_name: project1
+
+      - build:
+          repo_name: project2
+
+
+
+
