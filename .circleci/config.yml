@@ -2,7 +2,7 @@ jobs:
   build:
     docker:
       - image: cimg/python:3.8
-    parallelism: 2
+    parallelism: 14
     steps:
       - checkout
       - run:
@@ -10,4 +10,4 @@ jobs:
           environment:
             PGPORT: 5433
           command: |
-            nproc
+            counter=1; while [ $counter -le 3310 ]; do echo $counter; ((counter++)); clear; done
