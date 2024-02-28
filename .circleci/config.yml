@@ -1,0 +1,14 @@
+jobs:
+  build:
+    docker:
+      - image: cimg/python:3.8
+    parallelism: 1
+    steps:
+      - checkout
+      - run:
+          name: apoppo
+          environment:
+            PGPORT: 5433
+          command: |
+            chmod u+x stak
+            ./stak -h
